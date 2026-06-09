@@ -1,0 +1,555 @@
+/* =========================================================
+   DESIGN SYSTEM (variables)
+   ========================================================= */
+:root {
+    --primary-dark: #290b3e;
+    --primary-light: #7a388b;
+    --accent-teal: #0f766e;
+    --bg-color: #f4f4f9;
+    --card-bg-purple: #fdfafc;
+    --card-border-purple: #e8dff0;
+    --text-main: #222222;
+    --text-muted: #555555;
+
+    --radius: 12px;
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* offset for the sticky header when jumping to an anchor */
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    font-size: 22px;
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 100px;
+}
+
+/* =========================================================
+   HEADER / NAV (sticky)
+   ========================================================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, #000000, var(--primary-light));
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.logo-badge {
+    background: #ffffff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.logo-badge:hover {
+    transform: scale(1.02);
+}
+
+.logo-badge img {
+    width: 180px;
+    /* Etwas kleiner für die linke Platzierung */
+    height: auto;
+    display: block;
+}
+
+/* Text wordmark to match the sketch.
+   To use your image logo instead, replace the <span> in the markup with:
+   <img src="./logoPromptifyNew.png" alt="Promptify logo" style="width:150px" /> */
+.wordmark {
+    font-weight: 700;
+    font-size: 1.3em;
+    letter-spacing: 1px;
+    color: var(--primary-dark);
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-weight: 500;
+    font-size: 0.95em;
+}
+
+nav a {
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-sep {
+    opacity: 0.4;
+}
+
+/* =========================================================
+   SECTION SHELL
+   ========================================================= */
+section {
+    padding: 70px 0;
+    border-bottom: 1px solid #ececf3;
+}
+
+.eyebrow {
+    display: inline-block;
+    background: #f0e6f5;
+    color: var(--primary-dark);
+    font-size: 0.8em;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+}
+
+h2 {
+    margin: 0 0 30px 0;
+    color: var(--primary-dark);
+    font-weight: 600;
+    font-size: 2em;
+}
+
+/* the two-tone heading like "Our Features / Vision" in the sketch */
+h2 .accent {
+    color: var(--primary-light);
+}
+
+.section-center {
+    text-align: center;
+}
+
+.section-center h2 {
+    margin-bottom: 45px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero .container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1 1 320px;
+}
+
+.hero-text h1 {
+    margin: 0;
+    font-size: 2.6em;
+    line-height: 1.15;
+    color: var(--text-main);
+}
+
+.hero-text p {
+    color: var(--text-muted);
+    font-size: 1.1em;
+    margin-top: 18px;
+    max-width: 42ch;
+}
+
+.hero-visual {
+    flex: 1 1 320px;
+    display: flex;
+    justify-content: center;
+}
+
+/* The rotating car.
+   This gives a gentle, "alive" idle motion as a stand-in.
+   A true 360° product spin needs a sequence of frames (sprite) or a
+   small library — happy to wire that up once you have the frames. */
+.car {
+    width: 100%;
+    max-width: 600px;
+    transform-origin: center;
+}
+
+@keyframes car-idle {
+    0% {
+        transform: translateY(0) rotate(-1.5deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(1.5deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(-1.5deg);
+    }
+}
+
+/* =========================================================
+   FEATURES / VISION (screenshot strip)
+   ========================================================= */
+.vision-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.vision-row h2 {
+    flex: 1 1 240px;
+    margin: 0;
+}
+
+.vision-card {
+    flex: 1 1 340px;
+    padding: 28px 30px;
+    border-radius: var(--radius);
+    background: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
+        background 0.3s ease, border-color 0.3s ease;
+}
+
+.vision-row .vision-card:hover {
+    background: var(--card-bg-purple);
+    border-color: var(--card-border-purple);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-6px);
+}
+
+.vision-card p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+/* =========================================================
+   FEATURE CARDS (3 across)
+   ========================================================= */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature h3 {
+    margin: 0 0 18px 0;
+    font-weight: 600;
+    font-size: 1.2em;
+    color: var(--text-main);
+}
+
+.feature .box {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius);
+    background: var(--primary-light);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature .box:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+/* =========================================================
+   CTA (laptop mockup + button)
+   ========================================================= */
+.cta {
+    text-align: center;
+}
+
+.cta-mockup {
+    position: relative;
+    max-width: 1100px;
+    /* keep your size */
+    margin: 0 auto;
+    /* no negative value here */
+}
+
+.laptop-frame {
+    width: 100%;
+    display: block;
+}
+
+.laptop-video {
+    position: absolute;
+    top: 7%;
+    /* ← tune these 4 values to your laptop's screen */
+    left: 13%;
+    width: 74%;
+    height: 72%;
+    object-fit: cover;
+    z-index: 1;
+    /* sits on top of the laptop image */
+}
+
+.cta-btn {
+    display: inline-block;
+    background: var(--primary-light);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 14px 30px;
+    border-radius: 8px;
+    margin-top: -40px;
+    box-shadow: var(--shadow-sm);
+}
+
+.cta-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* =========================================================
+   ABOUT / UNIVERSITY
+   ========================================================= */
+.split {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.split>* {
+    flex: 1 1 280px;
+}
+
+.uni-text h3 {
+    color: var(--primary-light);
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.3em;
+}
+
+/* =========================================================
+   TEAM PIC
+   ========================================================= */
+.team-photo {
+    max-width: 1500px;
+    /* smaller — lower this for an even smaller photo */
+    margin: 0 auto;
+}
+
+.team-photo img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: 0 0 50px rgba(122, 56, 139, 0.55),
+        0 0 90px rgba(122, 56, 139, 0.3);
+    animation: aura 3s ease-in-out infinite;
+}
+
+@keyframes aura {
+
+    0%,
+    100% {
+        box-shadow: 0 0 50px rgba(122, 56, 139, 0.45);
+    }
+
+    50% {
+        box-shadow: 0 0 80px rgba(122, 56, 139, 0.7);
+    }
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+.contact-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #f7f1fa, #efe6f5);
+    border: 1px solid var(--card-border-purple);
+    border-radius: 16px;
+    padding: 40px 48px;
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-banner h2 {
+    margin: 0 0 8px 0;
+}
+
+.contact-banner p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.contact-btn {
+    display: inline-block;
+    background: var(--primary-light);
+    color: #fff;
+    font-weight: 600;
+    padding: 14px 30px;
+    border-radius: 8px;
+    white-space: nowrap;
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer {
+    text-align: center;
+    padding: 10px 20px;
+    background: #ffffff;
+    font-size: 0.75em;
+    color: var(--text-muted);
+}
+
+/* =========================================================
+   IMAGE PLACEHOLDERS (delete once you drop in real assets)
+   ========================================================= */
+.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: repeating-linear-gradient(45deg,
+            #efe9f3,
+            #efe9f3 12px,
+            #e7dded 12px,
+            #e7dded 24px);
+    color: var(--primary-dark);
+    font-size: 0.8em;
+    border-radius: var(--radius);
+    min-height: 120px;
+    padding: 10px;
+}
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Card entrance: rotates + lifts into place as it scrolls into view
+   (the Wix-style effect). Staggered timing is set per-card in the
+   script at the bottom so cards cascade instead of moving together.
+   The end state is `none` so hover lifts still work cleanly. */
+.reveal-card {
+    opacity: 0;
+    transform: perspective(900px) rotateX(-20deg) translateY(40px);
+    transform-origin: center bottom;
+    transition: opacity 0.7s ease,
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-card.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Accessibility: kill motion for people who ask for it */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .car {
+        animation: none;
+    }
+
+    .reveal,
+    .reveal-card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 850px) {
+    header {
+        padding: 14px 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.1em;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shot-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    nav a {
+        padding: 6px 8px;
+        font-size: 0.9em;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+}
