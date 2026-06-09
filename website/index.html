@@ -1,148 +1,203 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promptify — Caruso Data Catalog Innovation</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Promptify — Caruso Data Catalog Innovation</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
+  <body>
+    <!-- ============ HEADER / NAV ============ -->
+    <header>
+      <div class="container header-inner">
+        <a href="#hero" class="brand">
+          <span class="logo-box">
+            <img src="images/logoPromptifyNew.png" alt="Promptify logo" />
+          </span>
+        </a>
 
-  <link rel="stylesheet" href="css/style.css" />
-</head>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
 
-<body>
-  <!-- ============ HEADER / NAV ============ -->
-  <header>
-    <div class="logo-badge">
-      <img src="images/logoPromptifyNew.png" alt="Logo von Team Promptify" />
-    </div>
-    <nav>
-      <a href="#hero">Home</a>
-      <span class="nav-sep">|</span>
-      <a href="#features">Features</a>
-      <span class="nav-sep">|</span>
-      <a href="#demo">Demo</a>
-      <span class="nav-sep">|</span>
-      <a href="#about">About Us</a>
-    </nav>
-  </header>
-
-  <!-- ============ HERO ============ -->
-  <section class="hero" id="hero">
-    <div class="container">
-      <div class="hero-text reveal">
-        <span class="eyebrow">Built by Students</span>
-        <h1>Caruso Data Catalog Innovation</h1>
-        <p>
-          <!-- TODO: one-line value proposition — what does Promptify do for the visitor? -->
-          A smarter way to explore and work with automotive data.
-        </p>
+        <nav>
+          <a href="#hero">Home</a>
+          <a href="#features">Features</a>
+          <a href="#demo">Demo</a>
+          <a href="#about">About Us</a>
+          <a href="mailto:sep.promptify@gmail.com" class="btn-primary nav-cta">Get in touch</a>
+        </nav>
       </div>
-      <div class="hero-visual reveal">
-        <img class="car" src="images/rotating_car.gif" alt="Rotating product car" />
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- ============ VISION ============ -->
-  <section id="features">
-    <div class="container vision-row">
-      <h2><span class="accent">Our</span> Vision</h2>
-      <div class="vision-card reveal-card">
-        <p>A short description of your vision goes here — one or two sentences.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FEATURE CARDS ============ -->
-  <section class="section-center">
-    <div class="container">
-      <div class="feature-grid">
-        <div class="feature reveal-card">
-          <h3>Feature 1</h3>
-          <div class="box"></div>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-text reveal">
+          <span class="eyebrow">⬡ Built by Students</span>
+          <h1>Caruso Data Catalog <span class="accent">Innovation</span></h1>
+          <p class="lead">A smarter way to explore and work with automotive data.</p>
+          <div class="hero-actions">
+            <a href="#demo" class="btn-primary">Check It Out Now ▶</a>
+            <a href="#features" class="btn-secondary">Learn More ↓</a>
+          </div>
         </div>
-        <div class="feature reveal-card">
-          <h3>Feature 2</h3>
-          <div class="box"></div>
-        </div>
-        <div class="feature reveal-card">
-          <h3>Feature 3</h3>
-          <div class="box"></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============ CTA ============ -->
-  <section class="cta" id="demo">
-    <div class="container">
-      <h2>Demo</h2>
-      <div class="cta-mockup">
-        <img src="images/laptop.png" alt="" class="laptop-frame" />
-        <video class="laptop-video" src="images/demo.mp4" autoplay loop muted playsinline></video>
-      </div>
-      <a href="#" class="cta-btn">Check It Out Now →</a>
-    </div>
-  </section>
+        <div class="hero-visual reveal">
+          <img src="images/car-static.png" alt="Static car image" />
 
-  <!-- ============ ABOUT US ============ -->
-  <section id="about" class="section-center">
-    <div class="container">
-      <h2>About Us</h2>
-      <div class="split">
-        <div class="uni-text reveal">
-          <h3>Technische Hochschule Mannheim</h3>
-          <p>
-            <!-- TODO: short paragraph about the project / who you are -->
-            A student project developed at Technische Hochschule Mannheim.
-          </p>
-        </div>
-        <div class="reveal">
-          <!-- TODO: campus photo -->
-          <div class="placeholder" style="aspect-ratio: 16/10;">
-            Campus photo
+          <div class="float-card fc-1">
+            <span class="fc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            </span>
+            <div>
+              <strong>Smart Search</strong>
+              <p>Natural language query support</p>
+            </div>
+          </div>
+
+          <div class="float-card fc-2">
+            <span class="fc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6 6l1.5 1.5M16.5 16.5L18 18M18 6l-1.5 1.5M7.5 16.5L6 18"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+            <div>
+              <strong>AI Insights</strong>
+              <p>Get intelligent recommendations</p>
+            </div>
+          </div>
+
+          <div class="float-card fc-3">
+            <span class="fc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <div>
+              <strong>Trusted Data</strong>
+              <p>Curated &amp; up-to-date</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============ TEAM ============ -->
-  <section class="section-center">
-    <div class="container">
-      <h2>Our Team</h2>
-      <div class="team-photo reveal">
-        <img src="images/team.jpeg" alt="Team Promptify" />
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT ============ -->
-  <section>
-    <div class="container">
-      <div class="contact-banner">
-        <div>
-          <h2>Contact</h2>
-          <p>Have a question or want to collaborate? We'd love to hear from you.</p>
+    <!-- ============ OUR VISION ============ -->
+    <section class="vision" id="vision">
+      <div class="container vision-inner">
+        <div class="vision-text reveal">
+          <h2><span class="accent-dark">Our</span> <span class="accent">Vision</span></h2>
+          <div class="vision-body">
+            <span class="big-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+            <p>
+              We want to simplify the way people interact with automotive data.
+              By combining intelligent search, clean organization and modern
+              technology, we make data accessible to everyone.
+            </p>
+          </div>
         </div>
-        <a href="mailto:sep.promptify@gmail.com" class="contact-btn">Get in touch →</a>
+        <div class="vision-visual reveal">
+          <!-- TODO: vision illustration -->
+          <div class="placeholder" style="aspect-ratio: 16/10;">Vision illustration</div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============ FOOTER ============ -->
-  <footer>
-    <p>
-      © Team Promptify • Technische Hochschule Mannheim • Sommersemester 2026
-      • Alle Rechte vorbehalten
-    </p>
+    <!-- ============ OUR FEATURES ============ -->
+    <section class="features section-center" id="features">
+      <div class="container">
+        <h2><span class="accent-dark">Our</span> <span class="accent">Features</span></h2>
+        <div class="feature-grid">
+          <div class="feature reveal-card">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            </span>
+            <h3>Smart Search</h3>
+            <p>Find the right data in seconds with natural language queries.</p>
+          </div>
+          <div class="feature reveal-card">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+            </span>
+            <h3>Advanced Analytics</h3>
+            <p>Analyze and visualize data with powerful built-in tools.</p>
+          </div>
+          <div class="feature reveal-card">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <h3>Reliable &amp; Secure</h3>
+            <p>High data quality, secure access and continuous updates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LIVE DEMO ============ -->
+    <section class="demo-section section-center" id="demo">
+      <div class="container">
+        <h2><span class="accent-dark">Video</span> <span class="accent">Demo</span></h2>
+        <div class="laptop reveal">
+          <!-- TODO: replace with your laptop.png + demo video -->
+          <img class="laptop-frame" src="images/laptop.png" alt="" />
+          <video class="laptop-video" src="images/demo.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <a href="#" class="btn-primary">Try it out now →</a>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT US ============ -->
+    <section class="about" id="about">
+      <div class="container about-inner">
+        <div class="about-text reveal">
+          <h2><span class="accent-dark">About</span> <span class="accent">Us</span></h2>
+          <p>We are a team of students from Technische Hochschule Mannheim.</p>
+          <p>
+            This project is part of our passion for data, technology and the
+            automotive industry.
+          </p>
+        </div>
+        <div class="about-visual reveal">
+          <img src="images/campus-photo.jpg" alt="Campus Photo" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OUR TEAM ============ -->
+    <section class="team section-center">
+      <div class="container">
+        <h2><span class="accent-dark">Our</span> <span class="accent">Team</span></h2>
+        <div class="team-photo reveal">
+          <img src="images/team.jpeg" alt="Team photo" />
+        </div>
+        <div class="contact-banner reveal">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </span>
+          <div class="contact-copy">
+            <strong>Contact Us</strong>
+            <span>We'd love to hear from you.</span>
+          </div>
+          <a href="mailto:sep.promptify@gmail.com" class="btn-light">Get in touch →</a>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+      <div class="container">
+      <p>
+        © Team Promptify • Technische Hochschule Mannheim • Summer Semester 2026 • All rights reserved
+      </p>
+    </div>
   </footer>
 
-  <!-- ============ SCROLL REVEAL (no libraries) ============ -->
-  <script src="js/main.js"></script>
-</body>
-
+    <script src="js/main.js"></script>
+  </body>
 </html>
