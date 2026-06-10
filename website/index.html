@@ -1,415 +1,203 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Team Promptify - Webseite</title>
+    <title>Promptify — Caruso Data Catalog Innovation</title>
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-
-    <style>
-      /* --- DESIGN SYSTEM (Variablen) --- */
-      :root {
-        --primary-dark: #290b3e;
-        --primary-light: #7A388B;
-        --accent-teal: #0f766e;
-        --bg-color: #f4f4f9;
-        --card-bg-purple: #fdfafc;
-        --card-border-purple: #e8dff0;
-        --card-bg-teal: #f5fcfa;
-        --card-border-teal: #e0f2ef;
-        --text-main: #222222;
-        --text-muted: #555555;
-      }
-
-      /* --- GLOBAL --- */
-      body {
-        margin: 0;
-        font-family: "Poppins", Arial, sans-serif;
-        background: var(--bg-color);
-        color: var(--text-main);
-        line-height: 1.6;
-      }
-
-      a {
-        text-decoration: none;
-        transition: all 0.2s ease-in-out;
-      }
-
-      /* --- HEADER (Neu: Flexbox Layout) --- */
-      header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 30px 40px;
-        background: linear-gradient(135deg, #000000, var(--primary-light));
-        color: white;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        gap: 20px;
-      }
-
-      .header-logo {
-        flex: 1;
-        display: flex;
-        justify-content: flex-start;
-      }
-
-      .logo-badge {
-        background: #ffffff;
-        padding: 8px 16px;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        transition: transform 0.3s ease;
-      }
-
-      .logo-badge:hover {
-        transform: scale(1.02);
-      }
-
-      .logo-badge img {
-        width: 180px; /* Etwas kleiner für die linke Platzierung */
-        height: auto;
-        display: block;
-      }
-
-      .header-title {
-        flex: 2;
-        text-align: center;
-      }
-
-      .header-title h1 {
-        margin: 0 0 5px 0;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        font-size: 1.6em;
-      }
-
-      .header-title h3 {
-        margin: 0;
-        font-weight: 400;
-        opacity: 0.85;
-        font-size: 1em;
-        font-style: italic;
-      }
-
-      .header-action {
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-      }
-
-      .header-btn {
-        display: inline-block;
-        background-color: #f5f0f8;
-        color: var(--primary-dark);
-        padding: 10px 24px;
-        border-radius: 6px;
-        font-weight: 600;
-        font-size: 0.9em;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        white-space: nowrap;
-      }
-
-      .header-btn:hover {
-        background-color: #ffffff;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-      }
-
-      /* --- MAIN CONTENT --- */
-      main {
-        padding: 40px 20px;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      section {
-        background: #ffffff;
-        padding: 30px 40px;
-        margin-bottom: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        border-top: 4px solid var(--primary-light);
-      }
-
-      h2 {
-        margin-top: 0;
-        margin-bottom: 25px;
-        color: var(--primary-dark);
-        font-weight: 600;
-        font-size: 1.7em;
-        border-bottom: 2px solid var(--card-border-purple);
-        padding-bottom: 10px;
-      }
-
-      h3.section-subtitle {
-        color: var(--primary-light);
-        font-weight: 500;
-        margin-top: 0;
-        margin-bottom: 20px;
-      }
-
-      /* --- VERTIKALE LISTEN-LAYOUTS --- */
-      .list-container {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      /* --- CARDS (Teams & Files) --- */
-      .card {
-        background: var(--card-bg-purple);
-        padding: 15px 20px;
-        border: 1px solid var(--card-border-purple);
-        border-left: 4px solid var(--primary-light);
-        border-radius: 8px;
-        transition: all 0.2s ease;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .card:hover {
-        transform: translateX(4px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-      }
-
-      .card-name {
-        color: var(--primary-light);
-        font-weight: 600;
-        font-size: 1.1em;
-      }
-
-      .card-role {
-        color: #222222;
-        font-size: 0.95em;
-        background: #ffffff;
-        padding: 4px 10px;
-        border-radius: 12px;
-        border: 1px solid #eee;
-      }
-
-      .card-neutral {
-        background: #f9f9f9;
-        border: 1px dashed #ccc;
-        border-left: none;
-        text-align: center;
-        color: var(--text-muted);
-        font-style: italic;
-        justify-content: center;
-      }
-
-      .card-neutral:hover {
-        transform: none;
-        box-shadow: none;
-      }
-
-      /* --- REPORT CARDS --- */
-      .report-card {
-        display: flex;
-        align-items: center;
-        padding: 14px 20px;
-        border-radius: 8px;
-        transition: all 0.2s ease;
-      }
-
-      .report-card:hover {
-        transform: translateX(4px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-      }
-
-      .report-date {
-        font-weight: 600;
-        font-size: 1em;
-        color: var(--text-main);
-        margin-right: 15px;
-        min-width: 90px;
-      }
-
-      .report-divider {
-        color: #ccc;
-        margin-right: 15px;
-      }
-
-      .report-purple {
-        background: var(--card-bg-purple);
-        border: 1px solid var(--card-border-purple);
-        border-left: 4px solid var(--primary-light);
-      }
-      .report-purple a {
-        color: var(--primary-light);
-        font-weight: 600;
-        font-size: 1.05em;
-      }
-      .report-purple a:hover {
-        color: var(--primary-dark);
-      }
-
-      .report-teal {
-        background: var(--card-bg-teal);
-        border: 1px solid var(--card-border-teal);
-        border-left: 4px solid var(--accent-teal);
-      }
-      .report-teal a {
-        color: var(--accent-teal);
-        font-weight: 600;
-        font-size: 1.05em;
-      }
-      .report-teal a:hover {
-        color: #0a524d;
-      }
-
-      /* --- FOOTER --- */
-      footer {
-        text-align: center;
-        padding: 25px 20px;
-        background: #ffffff;
-        margin-top: 40px;
-        font-size: 0.9em;
-        color: var(--text-muted);
-        border-top: 1px solid #eeeeee;
-      }
-
-      /* --- RESPONSIVE DESIGN --- */
-      @media (max-width: 850px) {
-        header {
-          flex-direction: column;
-          text-align: center;
-          padding: 30px 20px;
-        }
-        .header-logo,
-        .header-title,
-        .header-action {
-          justify-content: center;
-          flex: none;
-        }
-        .header-title {
-          margin: 15px 0;
-        }
-      }
-
-      @media (max-width: 600px) {
-        main {
-          padding: 20px 10px;
-        }
-        section {
-          padding: 20px;
-        }
-
-        .card {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 5px;
-        }
-        .card-role {
-          padding: 2px 8px;
-          font-size: 0.85em;
-        }
-
-        .report-card {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 5px;
-        }
-        .report-divider {
-          display: none;
-        }
-        .report-date {
-          margin-bottom: 0;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
+    <!-- ============ HEADER / NAV ============ -->
     <header>
-      <div class="header-logo">
-        <div class="logo-badge">
-          <img src="./logoPromptifyNew.png" alt="Logo von Team Promptify" />
-        </div>
-      </div>
+      <div class="container header-inner">
+        <a href="#hero" class="brand">
+          <span class="logo-box">
+            <img src="images/logoPromptifyNew.png" alt="Promptify logo" />
+          </span>
+        </a>
 
-      <div class="header-title">
-        <h1>Willkommen auf der offiziellen Seite unseres Teams!</h1>
-        <h3>Bitte bedenken Sie, dass die Webseite noch in Bearbeitung ist.</h3>
-      </div>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
 
-      <div class="header-action">
-        <a
-          href="https://moodle.hs-mannheim.de/mod/wiki/view.php?pageid=3271"
-          class="header-btn"
-          >Zur Moodle Wiki-Seite</a
-        >
+        <nav>
+          <a href="#hero">Home</a>
+          <a href="#features">Features</a>
+          <a href="#demo">Demo</a>
+          <a href="#about">About Us</a>
+          <a href="mailto:sep.promptify@gmail.com" class="btn-primary nav-cta">Get in touch</a>
+        </nav>
       </div>
     </header>
 
-    <main>
-      <section>
-        <h2>Unser Team</h2>
-        <div class="list-container">
-          <div class="card">
-            <span class="card-name">Tomas Parada</span>
-            <span class="card-role">Backend</span>
-          </div>
-          <div class="card">
-            <span class="card-name">Simona-Ioana Purdila</span>
-            <span class="card-role">Frontend</span>
-          </div>
-          <div class="card">
-            <span class="card-name">Luis Däuber</span>
-            <span class="card-role">API</span>
-          </div>
-          <div class="card">
-            <span class="card-name">Tobias Gladhorn</span>
-            <span class="card-role">Documentation</span>
-          </div>
-          <div class="card">
-            <span class="card-name">Adrian Gareis</span>
-            <span class="card-role">Requirements Engineering</span>
-          </div>
-          <div class="card">
-            <span class="card-name">Eda Bostanci</span>
-            <span class="card-role">UX/UI Design</span>
-          </div>
-          <div class="card">
-            <span class="card-name">Julia Ghinda</span>
-            <span class="card-role">UX/UI Design</span>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-text reveal">
+          <span class="eyebrow">⬡ Built by Students</span>
+          <h1>Caruso Data Catalog <span class="accent">Innovation</span></h1>
+          <p class="lead">A smarter way to explore and work with automotive data.</p>
+          <div class="hero-actions">
+            <a href="#demo" class="btn-primary">Check It Out Now ▶</a>
+            <a href="#features" class="btn-secondary">Learn More ↓</a>
           </div>
         </div>
-      </section>
 
-      <section>
-        <h2>Über uns und das Projekt</h2>
-        <div class="list-container">
-          <div class="card card-neutral">In Bearbeitung</div>
-        </div>
-      </section>
+        <div class="hero-visual reveal">
+          <img src="images/car-static.png" alt="Static car image" />
 
-      <section>
-        <h2>Kontakt</h2>
-
-        <div class="list-container">
-          <div class="report-card report-purple">
-            <span class="report-date">E-Mail</span>
-            <span class="report-divider">|</span>
-            <a href="mailto:sep.promptify@gmail.com">sep.promptify@gmail.com</a>
+          <div class="float-card fc-1">
+            <span class="fc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            </span>
+            <div>
+              <strong>Smart Search</strong>
+              <p>Natural language query support</p>
+            </div>
           </div>
-          <div class="report-card report-purple">
-            <span class="report-date" style="font-style: italic"
-              >In Bearbeitung</span
-            >
+
+          <div class="float-card fc-2">
+            <span class="fc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6 6l1.5 1.5M16.5 16.5L18 18M18 6l-1.5 1.5M7.5 16.5L6 18"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+            <div>
+              <strong>AI Insights</strong>
+              <p>Get intelligent recommendations</p>
+            </div>
+          </div>
+
+          <div class="float-card fc-3">
+            <span class="fc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <div>
+              <strong>Trusted Data</strong>
+              <p>Curated &amp; up-to-date</p>
+            </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
+    <!-- ============ OUR VISION ============ -->
+    <section class="vision" id="vision">
+      <div class="container vision-inner">
+        <div class="vision-text reveal">
+          <h2><span class="accent-dark">Our</span> <span class="accent">Vision</span></h2>
+          <div class="vision-body">
+            <span class="big-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+            <p>
+              We want to simplify the way people interact with automotive data.
+              By combining intelligent search, clean organization and modern
+              technology, we make data accessible to everyone.
+            </p>
+          </div>
+        </div>
+        <div class="vision-visual reveal">
+          <!-- TODO: vision illustration -->
+          <div class="placeholder" style="aspect-ratio: 16/10;">Vision illustration</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OUR FEATURES ============ -->
+    <section class="features section-center" id="features">
+      <div class="container">
+        <h2><span class="accent-dark">Our</span> <span class="accent">Features</span></h2>
+        <div class="feature-grid">
+          <div class="feature reveal-card">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            </span>
+            <h3>Smart Search</h3>
+            <p>Find the right data in seconds with natural language queries.</p>
+          </div>
+          <div class="feature reveal-card">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+            </span>
+            <h3>Advanced Analytics</h3>
+            <p>Analyze and visualize data with powerful built-in tools.</p>
+          </div>
+          <div class="feature reveal-card">
+            <span class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <h3>Reliable &amp; Secure</h3>
+            <p>High data quality, secure access and continuous updates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LIVE DEMO ============ -->
+    <section class="demo-section section-center" id="demo">
+      <div class="container">
+        <h2><span class="accent-dark">Video</span> <span class="accent">Demo</span></h2>
+        <div class="laptop reveal">
+          <!-- TODO: replace with your laptop.png + demo video -->
+          <img class="laptop-frame" src="images/laptop.png" alt="" />
+          <video class="laptop-video" src="images/demo.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <a href="#" class="btn-primary">Try it out now →</a>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT US ============ -->
+    <section class="about" id="about">
+      <div class="container about-inner">
+        <div class="about-text reveal">
+          <h2><span class="accent-dark">About</span> <span class="accent">Us</span></h2>
+          <p>We are a team of students from Technische Hochschule Mannheim.</p>
+          <p>
+            This project is part of our passion for data, technology and the
+            automotive industry.
+          </p>
+        </div>
+        <div class="about-visual reveal">
+          <img src="images/campus-photo.jpg" alt="Campus Photo" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OUR TEAM ============ -->
+    <section class="team section-center">
+      <div class="container">
+        <h2><span class="accent-dark">Our</span> <span class="accent">Team</span></h2>
+        <div class="team-photo reveal">
+          <img src="images/team.jpeg" alt="Team photo" />
+        </div>
+        <div class="contact-banner reveal">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </span>
+          <div class="contact-copy">
+            <strong>Contact Us</strong>
+            <span>We'd love to hear from you.</span>
+          </div>
+          <a href="mailto:sep.promptify@gmail.com" class="btn-light">Get in touch →</a>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
     <footer>
+      <div class="container">
       <p>
-        © Team Promptify Website • Technische Hochschule Mannheim •
-        Sommersemester 2026 Alle Rechte vorbehalten
+        © Team Promptify • Technische Hochschule Mannheim • Summer Semester 2026 • All rights reserved
       </p>
-    </footer>
+    </div>
+  </footer>
+
+    <script src="js/main.js"></script>
   </body>
 </html>
