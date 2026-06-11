@@ -40,3 +40,4 @@ navMenu.querySelectorAll("a").forEach((a) =>
     navToggle.setAttribute("aria-expanded", "false");
   })
 );
+
