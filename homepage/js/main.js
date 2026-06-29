@@ -67,6 +67,65 @@ window.addEventListener("resize", () =>
   moveNavIndicator(navMenu.querySelector("a.active"))
 );
 
+/* ---- Custom video player controls ---- */
+const videoPlayer = document.querySelector(".video-player");
+
+if (videoPlayer) {
+  const video = videoPlayer.querySelector("video");
+  const playBtn = videoPlayer.querySelector(".vp-play");
+  const speedBtn = videoPlayer.querySelector(".vp-speed");
+  const fullscreenBtn = videoPlayer.querySelector(".vp-fullscreen");
+  const progress = videoPlayer.querySelector(".vp-progress");
+  const progressFilled = videoPlayer.querySelector(".vp-progress-filled");
+
+  const syncPlayState = () => {
+    playBtn.classList.toggle("is-playing", !video.paused);
+    videoPlayer.classList.toggle("is-paused", video.paused);
+  };
+
+  playBtn.addEventListener("click", () => {
+    if (video.paused) video.play();
+    else video.pause();
+  });
+  video.addEventListener("play", syncPlayState);
+  video.addEventListener("pause", syncPlayState);
+  syncPlayState();
+
+  const speeds = [1, 1.5, 2, 0.5];
+  let speedIndex = 0;
+  speedBtn.addEventListener("click", () => {
+    speedIndex = (speedIndex + 1) % speeds.length;
+    video.playbackRate = speeds[speedIndex];
+    speedBtn.textContent = `${speeds[speedIndex]}x`;
+  });
+
+  const updateProgress = () => {
+    if (!video.duration) return;
+    progressFilled.style.width = `${(video.currentTime / video.duration) * 100}%`;
+  };
+  video.addEventListener("timeupdate", updateProgress);
+
+  const seek = (e) => {
+    const rect = progress.getBoundingClientRect();
+    const ratio = Math.min(Math.max((e.clientX - rect.left) / rect.width, 0), 1);
+    if (video.duration) video.currentTime = ratio * video.duration;
+  };
+  progress.addEventListener("click", seek);
+
+  fullscreenBtn.addEventListener("click", () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else if (videoPlayer.requestFullscreen) {
+      videoPlayer.requestFullscreen();
+    } else if (videoPlayer.webkitRequestFullscreen) {
+      videoPlayer.webkitRequestFullscreen();
+    }
+  });
+  document.addEventListener("fullscreenchange", () => {
+    fullscreenBtn.classList.toggle("is-fullscreen", !!document.fullscreenElement);
+  });
+}
+
 /* ---- Update active nav link while scrolling through sections ---- */
 const sectionObserver = new IntersectionObserver(
   (entries) => {
