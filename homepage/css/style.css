@@ -1231,6 +1231,33 @@ footer {
     margin-left: auto;
   }
 
+  .feature-grid {
+    max-width: 1300px;
+    gap: 150px;
+  }
+
+  .feature-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .feature-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .feature-front h3 {
+    font-size: 0.9rem;
+  }
+
+  .feature h3 {
+    font-size: 1.2rem;
+  }
+
+  .feature p {
+    font-size: 1rem;
+  }
+
 }
 
 /* ---- Medium desktop — reduce container padding before grid collapses ---- */
