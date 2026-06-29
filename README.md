@@ -1,1 +1,1 @@
-Website ist erreichbar über https://promptifysep.github.io/Promptify-Team-Website/website/
+Website ist erreichbar über https://promptifysep.github.io/Promptify-Team-Website/homepage/
